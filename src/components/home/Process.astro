@@ -1,0 +1,97 @@
+---
+import { ArrowRight } from "lucide-react";
+
+const steps = [
+    {
+        number: 1,
+        title: "Consulta Inicial",
+        description:
+            "Valoración médica completa que incluye exploración física y revisión detallada de síntomas para identificar el origen del problema.",
+    },
+    {
+        number: 2,
+        title: "Diagnóstico",
+        description:
+            "Con base en los síntomas, estudios realizados y la exploración física, se determina la causa exacta del padecimiento.",
+    },
+    {
+        number: 3,
+        title: "Plan de Tratamiento",
+        description:
+            "Se explica la condición de forma clara y se eligen las alternativas más seguras y efectivas, ya sea tratamiento médico o quirúrgico.",
+    },
+    {
+        number: 4,
+        title: "Preparación para Cirugía",
+        description:
+            "Incluye indicaciones previas, preparación médica necesaria y la elección del lugar donde se realizará el procedimiento.",
+    },
+    {
+        number: 5,
+        title: "Procedimiento Quirúrgico",
+        description:
+            "Se realiza la cirugía indicada, ya sea laparoscópica, ambulatoria o de urgencia, utilizando técnicas seguras y de mínima invasión.",
+    },
+    {
+        number: 6,
+        title: "Recuperación y Seguimiento",
+        description:
+            "Control del dolor, cuidados en casa y revisiones posteriores para asegurar una recuperación óptima y sin complicaciones.",
+    },
+];
+
+interface Props {
+    bgColor?: string;
+}
+
+const { bgColor = "bg-muted/40" } = Astro.props;
+---
+
+<section id="proceso" class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Proceso
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground"
+            >
+                Tu Camino hacia la Salud
+            </h2>
+            <p class="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
+                Descubre cómo trabajamos juntos para cuidar de tu bienestar
+                integral, desde la consulta inicial hasta la recuperación completa.
+            </p>
+        </div>
+
+        <div class="relative">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    steps.map((step, idx) => (
+                        <div class="relative">
+                            <div class="bg-card px-8 py-6 rounded-xl border border-border hover:border-primary/50 transition-all duration-300 h-full">
+                                <div class="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl mb-4">
+                                    {step.number}
+                                </div>
+                                <h3 class="serif-title text-2xl font-bold text-foreground mb-2">
+                                    {step.title}
+                                </h3>
+                                <p class="text-muted-foreground text-lg leading-relaxed">
+                                    {step.description}
+                                </p>
+                            </div>
+
+                            {idx < steps.length - 1 && (
+                                <div class="hidden lg:block absolute top-1/2 -right-4 transform -translate-y-1/2 text-accent">
+                                    <ArrowRight className="w-6 h-6" />
+                                </div>
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</section>

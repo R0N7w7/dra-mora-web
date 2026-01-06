@@ -1,0 +1,161 @@
+---
+import { Button } from "@/components/ui/button";
+
+interface Props {
+    bgColor?: string;
+}
+
+const { bgColor = "bg-muted/40" } = Astro.props;
+
+const services = [
+    {
+        id: 1,
+        category: "Cirugía de Hernias",
+        description: "Tratamiento quirúrgico especializado para hernias inguinales, umbilicales y ventrales con técnicas mínimamente invasivas.",
+        icon: "🔧",
+        features: [
+            "Técnica laparoscópica avanzada",
+            "Recuperación rápida",
+            "Mínimo dolor postoperatorio",
+            "Reincorporación laboral pronta",
+        ],
+    },
+    {
+        id: 2,
+        category: "Cirugía de Vesícula",
+        description: "Procedimientos laparoscópicos para enfermedades de la vesícula y vías biliares como colecistitis y colelitiasis.",
+        icon: "💊",
+        features: [
+            "Cirugía mínimamente invasiva",
+            "Sin cicatrices grandes",
+            "Alta el mismo día",
+            "Menos complicaciones",
+        ],
+    },
+    {
+        id: 3,
+        category: "Cirugía de Apendicitis",
+        description: "Tratamiento urgente de apendicitis aguda mediante técnicas laparoscópicas con resultados óptimos.",
+        icon: "⚡",
+        features: [
+            "Atención de urgencias 24/7",
+            "Procedimiento laparoscópico",
+            "Recuperación acelerada",
+            "Menor riesgo de infección",
+        ],
+    },
+    {
+        id: 4,
+        category: "Cirugía Laparoscópica",
+        description: "Procedimientos de mínima invasión para diversas patologías con recuperación más rápida y menor dolor.",
+        icon: "🔬",
+        features: [
+            "Incisiones de 5-10mm",
+            "Menos dolor postoperatorio",
+            "Hospitalización corta",
+            "Retorno rápido a actividades",
+        ],
+    },
+    {
+        id: 5,
+        category: "Cirugía Ambulatoria",
+        description: "Procedimientos menores como extirpación de lipomas, quistes y abscesos sin necesidad de hospitalización.",
+        icon: "✓",
+        features: [
+            "Anestesia local",
+            "Sin hospitalización",
+            "Procedimiento rápido",
+            "Atención personalizada",
+        ],
+    },
+    {
+        id: 6,
+        category: "Vasectomía sin Bisturí",
+        description: "Método anticonceptivo permanente masculino mediante técnica mínimamente invasiva sin incisiones.",
+        icon: "🎯",
+        features: [
+            "Sin incisión quirúrgica",
+            "Solo anestesia local",
+            "Recuperación inmediata",
+            "Eficacia mayor al 99%",
+        ],
+    }
+];
+---
+
+<section id="servicios" class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Servicios Destacados
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground"
+            >
+                Especialidades Médicas Completas
+            </h2>
+            <p class="text-muted-foreground text-lg mt-4 max-w-2xl mx-auto">
+                Especialista en la atención integral de enfermedades y
+                procedimientos quirúrgicos del aparato digestivo, pared
+                abdominal y otras condiciones que requieren intervención
+                quirúrgica.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {
+                services.map((service) => (
+                    <div class="flex flex-col border border-border rounded-xl overflow-hidden bg-card hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md">
+                        <div class="p-6 flex-1">
+                            <div class="flex items-center gap-3 mb-4">
+                                <span
+                                    class="text-3xl"
+                                    role="img"
+                                    aria-label={service.category}
+                                >
+                                    {service.icon}
+                                </span>
+                                <h3 class="serif-title text-xl font-bold text-foreground leading-tight">
+                                    {service.category}
+                                </h3>
+                            </div>
+
+                            <p class="text-sm text-muted-foreground mb-6">
+                                {service.description}
+                            </p>
+
+                            <div class="space-y-3">
+                                <p class="text-xs font-bold uppercase tracking-wider text-accent/80">
+                                    Características principales:
+                                </p>
+                                <ul class="space-y-2">
+                                    {service.features.map((feature) => (
+                                        <li class="flex items-start gap-3 text-foreground">
+                                            <svg class="w-4 h-4 text-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            <span class="text-sm leading-tight">
+                                                {feature}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="px-6 pb-6 pt-2">
+                            <Button
+                                variant="outline"
+                                className="w-full text-primary border-primary/20 hover:bg-primary/5 gap-2 font-semibold"
+                            >
+                                Ver más detalles
+                            </Button>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

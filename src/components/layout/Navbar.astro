@@ -1,0 +1,236 @@
+---
+import {
+  Menu,
+  X,
+  Phone,
+  ChevronDown,
+  ChevronRight,
+  Contact2Icon,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { medicalServices } from "@/lib/medical-services";
+import { CalendarClockIcon } from "@lucide/astro";
+import WhatsAppIcon from "../ui/whatsAppIcon.astro";
+
+/**
+ * ADVERTENCIA DE MIGRACIÓN:
+ * El componente original usaba 'useState' para el menú móvil.
+ * Se ha convertido a lógica de manipulación de DOM nativa para evitar
+ * la hidratación innecesaria de React en el cliente, mejorando el LCP y TBT.
+ */
+
+interface Props {
+  // Define aquí tus props si las necesitas, ej: title?: string;
+}
+
+const {} = Astro.props;
+---
+
+<header
+  class="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-sm border-b border-border"
+>
+  <div class="mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-20">
+      <a class="flex-shrink-0" href="/">
+        <img
+          src="/LogoDraMora.png"
+          alt="Logo Dra. Jessica Itzhel Mora Guzmán"
+          class="h-20 w-auto py-2"
+        />
+      </a>
+
+      <nav class="hidden md:flex space-x-8 items-center text-xl">
+        <div class="relative group">
+          <button
+            class="flex items-center gap-1 text-foreground hover:text-primary transition-colors py-2"
+          >
+            Servicios
+            <ChevronDown className="w-4 h-4" />
+          </button>
+          <div
+            class="absolute top-full left-0 mt-2 w-72 bg-background border border-border rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50"
+          >
+            <div class="py-2">
+              {
+                medicalServices.map((service, index) => (
+                  <div class="relative group/item" data-service-index={index}>
+                    <button class="w-full px-4 py-2.5 text-left flex items-center justify-between hover:bg-accent/10 transition-colors">
+                      <span class="text-xl font-medium text-foreground pr-2">
+                        {service.categoria}
+                      </span>
+                      {service.procedimientos.length > 0 && (
+                        <ChevronRight className="w-4 h-4 text-foreground/50 flex-shrink-0" />
+                      )}
+                    </button>
+                    {service.procedimientos.length > 0 && (
+                      <div class="absolute left-full top-0 ml-1 w-64 bg-background border border-border rounded-lg shadow-xl opacity-0 invisible group-hover/item:opacity-100 group-hover/item:visible transition-all duration-200 z-50">
+                        <div class="py-2">
+                          <div class="px-4 py-2 border-b border-border">
+                            <h5 class="text-xl font-semibold text-primary">
+                              {service.categoria}
+                            </h5>
+                          </div>
+                          <div class="py-2">
+                            {service.procedimientos.map((proc) => (
+                              <a
+                                href="#"
+                                class="block px-4 py-2 text-lg text-foreground/80 hover:bg-accent/10 hover:text-primary transition-colors capitalize"
+                              >
+                                {proc}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+        <a
+          href="#ubicaciones"
+          class="text-foreground hover:text-primary transition-colors"
+          >Ubicaciones</a
+        >
+        <a
+          href="#certificaciones"
+          class="text-foreground hover:text-primary transition-colors"
+          >Certificaciones</a
+        >
+        <a
+          href="#faq"
+          class="text-foreground hover:text-primary transition-colors"
+          >Preguntas</a
+        >
+      </nav>
+
+      <div class="hidden md:flex items-center gap-4">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://api.whatsapp.com/send?phone=5217712916045&text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita."
+          class="flex items-center gap-2 text-primary hover:text-accent transition-colors cursor-pointer"
+        >
+          <WhatsAppIcon class="size-4" />
+          <span class="text-lg">Hablar por WhatsApp</span>
+        </a>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.doctoralia.com.mx/jessica-itzhel-mora-guzman/medico-general/pachuca-de-soto"
+          class="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+        >
+          <Button
+            className="bg-primary text-primary-foreground text-lg cursor-pointer"
+            ><CalendarClockIcon class="size-5" /> Reserva tu cita</Button
+          >
+        </a>
+      </div>
+
+      <button
+        id="mobile-menu-button"
+        aria-label="Toggle Menu"
+        class="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+      >
+        <div id="menu-icon-open">
+          <Menu className="w-6 h-6" />
+        </div>
+        <div id="menu-icon-close" class="hidden">
+          <X className="w-6 h-6" />
+        </div>
+      </button>
+    </div>
+
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden pb-4 space-y-3 border-t border-border pt-4"
+    >
+      <div>
+        <button
+          id="mobile-services-toggle"
+          class="flex items-center justify-between w-full text-foreground hover:text-primary transition-colors"
+        >
+          <span>Servicios</span>
+          <ChevronDown className="w-4 h-4" id="mobile-services-icon" />
+        </button>
+        <div id="mobile-services-menu" class="hidden mt-2 ml-4 space-y-2">
+          {
+            medicalServices.map((service) => (
+              <div class="mb-3">
+                <h5 class="text-xs font-semibold text-primary mb-1">
+                  {service.categoria}
+                </h5>
+                {service.procedimientos.length > 0 && (
+                  <ul class="space-y-1 ml-2">
+                    {service.procedimientos.map((proc) => (
+                      <li class="text-xs text-foreground/70 capitalize">
+                        • {proc}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <a
+        href="#ubicaciones"
+        class="block text-foreground hover:text-primary transition-colors"
+        >Ubicaciones</a
+      >
+      <a
+        href="#certificaciones"
+        class="block text-foreground hover:text-primary transition-colors"
+        >Certificaciones</a
+      >
+      <a
+        href="#faq"
+        class="block text-foreground hover:text-primary transition-colors"
+        >Preguntas</a
+      >
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        href="https://www.doctoralia.com.mx/jessica-itzhel-mora-guzman/medico-general/pachuca-de-soto"
+        class="flex items-center gap-2 text-primary hover:text-accent transition-colors"
+      >
+        <Button
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+          ><CalendarClockIcon class="size-5" /> Reserva tu cita</Button
+        >
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const setupMenu = () => {
+    const button = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+    const iconOpen = document.getElementById("menu-icon-open");
+    const iconClose = document.getElementById("menu-icon-close");
+
+    button?.addEventListener("click", () => {
+      const isHidden = menu?.classList.toggle("hidden");
+      iconOpen?.classList.toggle("hidden", !isHidden);
+      iconClose?.classList.toggle("hidden", isHidden);
+    });
+
+    // Mobile services submenu toggle
+    const servicesToggle = document.getElementById("mobile-services-toggle");
+    const servicesMenu = document.getElementById("mobile-services-menu");
+    const servicesIcon = document.getElementById("mobile-services-icon");
+
+    servicesToggle?.addEventListener("click", () => {
+      servicesMenu?.classList.toggle("hidden");
+      servicesIcon?.classList.toggle("rotate-180");
+    });
+  };
+
+  // Se ejecuta en cada carga (incluyendo transiciones de Astro si usas View Transitions)
+  setupMenu();
+  document.addEventListener("astro:after-swap", setupMenu);
+</script>

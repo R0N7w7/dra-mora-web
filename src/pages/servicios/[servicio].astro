@@ -1,0 +1,37 @@
+---
+// src/pages/servicios/[servicio].astro
+import Layout from "@/layouts/Layout.astro";
+import { services } from "@/lib/services";
+
+export async function getStaticPaths() {
+    return services.map((s) => {
+        return {
+            params: { servicio: s.slug }, // Esto define la URL (ej: /servicios/seo)
+            props: { datos: s }, // Esto pasa los datos a la página
+        };
+    });
+}
+
+const { servicio } = Astro.params;
+const { datos } = Astro.props;
+---
+
+<Layout title={datos.titulo} description={datos.que_es_y_por_que_ocurre}>
+    <section class="py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h1
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground mb-6 text-center"
+            >
+                {datos.titulo}
+            </h1>
+            <img
+                src={datos.urls_imagen[0]}
+                alt={datos.titulo}
+                class="w-full h-auto rounded-lg mb-8"
+            />
+            <p class="text-lg text-muted-foreground mb-6">
+                {datos.que_es_y_por_que_ocurre}
+            </p>
+        </div>
+    </section>
+</Layout>

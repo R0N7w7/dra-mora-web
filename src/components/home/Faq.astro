@@ -1,0 +1,28 @@
+---
+import FaqAccordion from "@/components/home/FaqAccordion.tsx";
+
+interface Props {
+    bgColor?: string;
+}
+
+const { bgColor = "bg-background" } = Astro.props;
+---
+
+<section id="faq" class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto mb-2">
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Información
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground"
+            >
+                Preguntas Frecuentes
+            </h2>
+        </div>
+
+        <FaqAccordion client:visible />
+    </div>
+</section>
