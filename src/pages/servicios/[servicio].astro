@@ -21,12 +21,16 @@ const { servicio } = Astro.params;
 const { datos } = Astro.props;
 ---
 
-<Layout 
+<Layout
     title={`${datos.titulo} - ${datos.categoria}`}
     description={datos.que_es_y_por_que_ocurre}
     keywords={`${datos.titulo}, ${datos.categoria}, cirugía ${datos.titulo.toLowerCase()}, tratamiento ${datos.titulo.toLowerCase()}, Pachuca, Hidalgo, Dra. Jessica Mora`}
 >
-    <Hero title={datos.titulo} description={datos.que_es_y_por_que_ocurre} />
+    <Hero
+        title={datos.titulo}
+        description={datos.que_es_y_por_que_ocurre}
+        category={datos.categoria}
+    />
     <Alerts
         sintomas={datos.sintomas}
         alarma={datos.alarma}
@@ -42,5 +46,5 @@ const { datos } = Astro.props;
         recoverySteps={datos.recuperacion}
         bgColor="bg-[#f8fafc]"
     />
-    <VideoInfo  videoUrl={datos.url_video} />
+    <VideoInfo videoUrl={datos.url_video} />
 </Layout>

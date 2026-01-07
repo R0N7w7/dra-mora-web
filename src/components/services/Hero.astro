@@ -10,11 +10,13 @@ import WhatsAppIcon from "../ui/whatsAppIcon.astro";
 interface Props {
     title?: string;
     description?: string;
+    category?: string;
 }
 
 const {
     title = "Hernia Inguinal",
     description = "La hernia inguinal se presenta cuando una porción del intestino o tejido interno sobresale por una zona débil en la parte baja del abdomen (ingle). Es más común en hombres y puede aparecer por esfuerzo físico intenso, tos crónica, sobrepeso o debilidad muscular.",
+    category = "Cirugía de Hernia",
 } = Astro.props;
 ---
 
@@ -27,7 +29,7 @@ const {
                 <div
                     class="inline-block px-4 py-1 bg-primary/10 rounded-full text-primary font-semibold text-sm mb-4"
                 >
-                    Cirugía de Hernia
+                    {category}
                 </div>
                 <h1
                     class="serif-title text-4xl md:text-5xl font-bold text-foreground mb-6"
