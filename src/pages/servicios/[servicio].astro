@@ -1,5 +1,10 @@
 ---
 // src/pages/servicios/[servicio].astro
+import Process from "@/components/services/Process.astro";
+import Alerts from "@/components/services/Alerts.astro";
+import DiagnosticTreatment from "@/components/services/DiagnosticTreatment.astro";
+import Hero from "@/components/services/Hero.astro";
+import VideoInfo from "@/components/services/VideoInfo.astro";
 import Layout from "@/layouts/Layout.astro";
 import { services } from "@/lib/services";
 
@@ -17,21 +22,21 @@ const { datos } = Astro.props;
 ---
 
 <Layout title={datos.titulo} description={datos.que_es_y_por_que_ocurre}>
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-4xl mx-auto">
-            <h1
-                class="serif-title text-4xl md:text-5xl font-bold text-foreground mb-6 text-center"
-            >
-                {datos.titulo}
-            </h1>
-            <img
-                src={datos.urls_imagen[0]}
-                alt={datos.titulo}
-                class="w-full h-auto rounded-lg mb-8"
-            />
-            <p class="text-lg text-muted-foreground mb-6">
-                {datos.que_es_y_por_que_ocurre}
-            </p>
-        </div>
-    </section>
+    <Hero title={datos.titulo} description={datos.que_es_y_por_que_ocurre} />
+    <Alerts
+        sintomas={datos.sintomas}
+        alarma={datos.alarma}
+        bgColor="bg-[#f8fafc]"
+    />
+    <DiagnosticTreatment
+        diagnosticText={datos.diagnostico}
+        treatmentText={datos.tratamiento}
+        bgColor="bg-white"
+    />
+    <Process
+        preparationSteps={datos.preparacion}
+        recoverySteps={datos.recuperacion}
+        bgColor="bg-[#f8fafc]"
+    />
+    <VideoInfo  videoUrl={datos.url_video} />
 </Layout>

@@ -1,68 +1,70 @@
 export const medicalServices = [
   {
-    categoria: "Cirugía de hernia",
+    categoria: "Cirugía de hernias",
     procedimientos: [
-      "hernia inguinal",
-      "hernia umbilical",
-      "hernia ventral",
-      "diástasis de rectos"
+      { titulo: "Hernia inguinal", slug: "hernia-inguinal" },
+      { titulo: "Hernia umbilical", slug: "hernia-umbilical" },
+      { titulo: "Hernia ventral", slug: "hernia-ventral" },
+      { titulo: "Diástasis de rectos", slug: "diastasis-de-rectos" }
     ]
   },
   {
     categoria: "Padecimiento de hígado, vesícula y vías biliares",
     procedimientos: [
-      "Colecistitis",
-      "Colangitis",
-      "Coledocolitiasis"
+      { titulo: "Colecistitis", slug: "colecistitis" },
+      { titulo: "Colangitis", slug: "colangitis" },
+      { titulo: "Coledocolitiasis", slug: "coledocolitiasis" }
     ]
   },
   {
     categoria: "Cirugía de urgencias",
     procedimientos: [
-      "Apendicitis",
-      "Perforación intestinal",
-      "Traumatismos"
+      { titulo: "Apendicitis", slug: "apendicitis" },
+      { titulo: "Perforación intestinal", slug: "perforacion-intestinal" },
+      { titulo: "Traumatismos abdominales", slug: "traumatismos-abdominales" }
     ]
   },
   {
     categoria: "Cirugía laparoscópica",
     procedimientos: [
-      "vesícula",
-      "hernia",
-      "apéndice"
+      { titulo: "Cirugía laparoscópica de vesícula", slug: "cirugia-laparoscopica-de-vesicula" },
+      { titulo: "Cirugía laparoscópica de hernia", slug: "cirugia-laparoscopica-de-hernia" },
+      { titulo: "Apendicectomía laparoscópica", slug: "apendicectomia-laparoscopica" }
     ]
   },
   {
     categoria: "Cirugía ambulatoria",
     procedimientos: [
-      "lipomas",
-      "quistes",
-      "abscesos"
+      { titulo: "Lipomas", slug: "lipomas" },
+      { titulo: "Quistes", slug: "quistes" },
+      { titulo: "Abscesos", slug: "abscesos" }
     ]
   },
   {
     categoria: "Padecimientos anorrectales",
     procedimientos: [
-      "fístulas",
-      "fisuras",
-      "hemorroides"
+      { titulo: "Fístulas anales", slug: "fistulas-anales" },
+      { titulo: "Fisura anal", slug: "fisura-anal" },
+      { titulo: "Hemorroides", slug: "hemorroides" }
     ]
   },
   {
     categoria: "Cuello",
     procedimientos: [
-      "nódulos tiroideos",
-      "bocio tiroideo"
+      { titulo: "Nódulos tiroideos", slug: "nodulos-tiroideos" },
+      { titulo: "Bocio tiroideo", slug: "bocio-tiroideo" }
     ]
   },
   {
     categoria: "Vasectomía sin bisturí",
-    procedimientos: []
+    procedimientos: [
+      { titulo: "Vasectomía sin bisturí", slug: "vasectomia-sin-bisturi" }
+    ]
   },
   {
     categoria: "Pie diabético",
     procedimientos: [
-      "Pie diabético y complicaciones"
+      { titulo: "Pie diabético y sus complicaciones", slug: "pie-diabetico-y-sus-complicaciones" }
     ]
   },
 ];

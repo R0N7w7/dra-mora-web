@@ -11,6 +11,7 @@ const services = [
     {
         id: 1,
         category: "Cirugía de Hernias",
+        slug: "hernia-inguinal",
         description: "Tratamiento quirúrgico especializado para hernias inguinales, umbilicales y ventrales con técnicas mínimamente invasivas.",
         icon: "🔧",
         features: [
@@ -23,6 +24,7 @@ const services = [
     {
         id: 2,
         category: "Cirugía de Vesícula",
+        slug: "cirugia-laparoscopica-de-vesicula",
         description: "Procedimientos laparoscópicos para enfermedades de la vesícula y vías biliares como colecistitis y colelitiasis.",
         icon: "💊",
         features: [
@@ -35,6 +37,7 @@ const services = [
     {
         id: 3,
         category: "Cirugía de Apendicitis",
+        slug: "apendicectomia-laparoscopica",
         description: "Tratamiento urgente de apendicitis aguda mediante técnicas laparoscópicas con resultados óptimos.",
         icon: "⚡",
         features: [
@@ -47,6 +50,7 @@ const services = [
     {
         id: 4,
         category: "Cirugía Laparoscópica",
+        slug: "cirugia-laparoscopica-de-hernia",
         description: "Procedimientos de mínima invasión para diversas patologías con recuperación más rápida y menor dolor.",
         icon: "🔬",
         features: [
@@ -59,6 +63,7 @@ const services = [
     {
         id: 5,
         category: "Cirugía Ambulatoria",
+        slug: "lipomas",
         description: "Procedimientos menores como extirpación de lipomas, quistes y abscesos sin necesidad de hospitalización.",
         icon: "✓",
         features: [
@@ -71,6 +76,7 @@ const services = [
     {
         id: 6,
         category: "Vasectomía sin Bisturí",
+        slug: "vasectomia-sin-bisturi",
         description: "Método anticonceptivo permanente masculino mediante técnica mínimamente invasiva sin incisiones.",
         icon: "🎯",
         features: [
@@ -110,13 +116,13 @@ const services = [
                     <div class="flex flex-col border border-border rounded-xl overflow-hidden bg-card hover:border-primary/50 transition-all duration-300 shadow-sm hover:shadow-md">
                         <div class="p-6 flex-1">
                             <div class="flex items-center gap-3 mb-4">
-                                <span
+                                {/* <span
                                     class="text-3xl"
                                     role="img"
                                     aria-label={service.category}
                                 >
                                     {service.icon}
-                                </span>
+                                </span> */}
                                 <h3 class="serif-title text-xl font-bold text-foreground leading-tight">
                                     {service.category}
                                 </h3>
@@ -146,12 +152,14 @@ const services = [
                         </div>
 
                         <div class="px-6 pb-6 pt-2">
-                            <Button
-                                variant="outline"
-                                className="w-full text-primary border-primary/20 hover:bg-primary/5 gap-2 font-semibold"
-                            >
-                                Ver más detalles
-                            </Button>
+                            <a href={`/servicios/${service.slug}`}>
+                                <Button
+                                    variant="outline"
+                                    className="w-full text-primary border-primary/20 gap-2 font-semibold hover:border-transparent"
+                                >
+                                    Ver más detalles
+                                </Button>
+                            </a>
                         </div>
                     </div>
                 ))

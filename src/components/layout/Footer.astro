@@ -103,8 +103,10 @@ interface Props {
                                 {service.procedimientos.length > 0 && (
                                     <ul class="ml-3 space-y-0.5">
                                         {service.procedimientos.map((proc) => (
-                                            <li class="text-sm opacity-70 capitalize">
-                                                • {proc}
+                                            <li class="text-sm opacity-70">
+                                                <a href={`/servicios/${proc.slug}`} class="hover:text-accent transition-colors">
+                                                    • {proc.titulo}
+                                                </a>
                                             </li>
                                         ))}
                                     </ul>

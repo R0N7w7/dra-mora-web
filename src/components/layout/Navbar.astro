@@ -73,10 +73,10 @@ const {} = Astro.props;
                           <div class="py-2">
                             {service.procedimientos.map((proc) => (
                               <a
-                                href="#"
+                                href={`/servicios/${proc.slug}`}
                                 class="block px-4 py-2 text-lg text-foreground/80 hover:bg-accent/10 hover:text-primary transition-colors capitalize"
                               >
-                                {proc}
+                                {proc.titulo}
                               </a>
                             ))}
                           </div>
@@ -165,8 +165,10 @@ const {} = Astro.props;
                 {service.procedimientos.length > 0 && (
                   <ul class="space-y-1 ml-2">
                     {service.procedimientos.map((proc) => (
-                      <li class="text-xs text-foreground/70 capitalize">
-                        • {proc}
+                      <li class="text-xs text-foreground/70">
+                        <a href={`/servicios/${proc.slug}`} class="hover:text-primary transition-colors">
+                          • {proc.titulo}
+                        </a>
                       </li>
                     ))}
                   </ul>

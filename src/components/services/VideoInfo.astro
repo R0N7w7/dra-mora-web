@@ -1,0 +1,70 @@
+---
+/**
+ * Componente: InfoVideo.astro
+ * Migrado para manejar carga condicional de video mediante Props.
+ */
+
+import { PlayCircle } from "@lucide/astro";
+
+interface Props {
+    videoUrl?: string;
+    description?: string;
+    bgColor?: string;
+}
+
+const {
+    videoUrl,
+    description = "Visualice detalladamente en qué consiste el procedimiento y los beneficios de las técnicas de mínima invasión.",
+    bgColor = "bg-muted/40",
+} = Astro.props;
+---
+
+<section class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Información Adicional
+            </p>
+            <h2
+                class="serif-title text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
+                Video Informativo
+            </h2>
+            <p class="text-muted-foreground text-lg">
+                {description}
+            </p>
+        </div>
+
+        <div
+            class="relative rounded-2xl overflow-hidden shadow-2xl bg-muted aspect-video"
+        >
+            {
+                videoUrl ? (
+                    <iframe
+                        src={videoUrl}
+                        title="Video informativo"
+                        class="w-full h-full"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                    />
+                ) : (
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 backdrop-blur-sm mb-4">
+                                <PlayCircle
+                                    class="w-12 h-12 text-primary"
+                                    stroke-width={1.5}
+                                />
+                            </div>
+                            <p class="text-muted-foreground font-medium">
+                                Video próximamente disponible
+                            </p>
+                        </div>
+                    </div>
+                )
+            }
+        </div>
+    </div>
+</section>

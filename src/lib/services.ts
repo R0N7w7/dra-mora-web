@@ -27,7 +27,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/p40fLhj0MM8"
   },
   {
     "slug": "hernia-umbilical",
@@ -54,7 +54,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/DsFmu4xH1ZA"
   },
   {
     "slug": "hernia-ventral",
@@ -80,7 +80,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/5P6IRGXVUhU"
   },
   {
     "slug": "diastasis-de-rectos",
@@ -107,7 +107,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/l5e4tkSpl20"
   },
   /* Padecimiento de hígado, vesícula y vías biliares */
   {
@@ -136,7 +136,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/3eWKBoMBJ54"
   },
   {
     "slug": "colangitis",
@@ -164,7 +164,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/ylRBhZimwNo"
   },
   {
     "slug": "coledocolitiasis",
@@ -192,7 +192,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/bIYxdNspNOk"
   },
   /* Cirugía de urgencias */
   {
@@ -221,7 +221,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/xvoVfp-XlE4"
   },
   {
     "slug": "perforacion-intestinal",
@@ -247,7 +247,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/lb4tRpp9dNc"
   },
   {
     "slug": "traumatismos-abdominales",
@@ -273,7 +273,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/mELoCt5E6-0"
   },
   /* Cirugía laparoscópica */
   {
@@ -302,7 +302,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/uonaDzyHlKs"
   },
   {
     "slug": "cirugia-laparoscopica-de-hernia",
@@ -329,7 +329,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/0I93nmjWRHc"
   },
   {
     "slug": "apendicectomia-laparoscopica",
@@ -356,7 +356,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/lg6QOQ-d_sE"
   },
   /* Cirugía ambulatoria */
   {
@@ -384,7 +384,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/Oe-2J8WC1hk"
   },
   {
     "slug": "quistes",
@@ -411,7 +411,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/jqdi32JIdz8"
   },
   {
     "slug": "abscesos",
@@ -438,7 +438,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/kpp85bxSQo4"
   },
   /* Vasectomía sin bisturí */
   {
@@ -469,7 +469,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/bmox_YIBUHg"
   },
   /* Pie diabético */
   {
@@ -503,7 +503,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/_eFiGme0xfQ"
   },
   /* Padecimientos anorrectales  */
   {
@@ -531,7 +531,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/SK19riIlYBA"
   },
   {
     "slug": "fisura-anal",
@@ -558,7 +558,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/ABx1B9r72y8"
   },
   {
     "slug": "hemorroides",
@@ -586,7 +586,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/Jk0PmsNL_fg"
   },
   /* Cuello */
   {
@@ -614,7 +614,7 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/Yuah1w631Yc"
   },
   {
     "slug": "bocio-tiroideo",
@@ -642,6 +642,6 @@ export const services = [
     "urls_imagen": [
       "/img/placeholder.jpg"
     ],
-    "url_video": "url_video_aquí"
+    "url_video": "https://www.youtube.com/embed/zomlN2ey7II"
   }
 ]
