@@ -1,0 +1,117 @@
+---
+/**
+ * Componente: SurgeryProcess.astro
+ * Migrado para recibir arreglos de texto como props.
+ */
+
+import { ClipboardList, CheckCircle } from "@lucide/astro";
+
+interface Props {
+    preparationSteps?: string[];
+    recoverySteps?: string[];
+    bgColor?: string;
+}
+
+const {
+    preparationSteps = [
+        "Ayuno de 8 horas antes del procedimiento.",
+        "Informar sobre medicamentos actuales y alergias.",
+        "Presentar estudios de laboratorio y gabinete previos.",
+        "Seguir las indicaciones de aseo personal pre-quirúrgico.",
+    ],
+    recoverySteps = [
+        "Alta hospitalaria temprana y reincorporación gradual.",
+        "Evitar esfuerzos físicos intensos por 4 a 6 semanas.",
+        "Cuidado de incisiones siguiendo las indicaciones médicas.",
+        "Asistir a consultas de seguimiento para asegurar el éxito.",
+    ],
+    bgColor = "bg-muted/40",
+} = Astro.props;
+---
+
+<section class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Proceso Quirúrgico
+            </p>
+            <h2
+                class="serif-title text-3xl md:text-4xl font-bold text-foreground mb-4"
+            >
+                Preparación y Recuperación
+            </h2>
+            <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Conoce los pasos esenciales para asegurar exito y
+                una recuperación rápida y segura.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center"
+                    >
+                        <ClipboardList
+                            class="w-6 h-6 text-secondary"
+                            stroke-width={2}
+                        />
+                    </div>
+                    <h3 class="serif-title text-2xl font-bold text-foreground">
+                        Preparación
+                    </h3>
+                </div>
+
+                <div class="space-y-4">
+                    {
+                        preparationSteps.map((item) => (
+                            <div class="p-4 bg-card border border-border rounded-lg shadow-sm">
+                                <div class="flex items-start gap-3">
+                                    <CheckCircle
+                                        class="w-5 h-5 text-secondary flex-shrink-0 mt-0.5"
+                                        stroke-width={2}
+                                    />
+                                    <p class="text-muted-foreground">{item}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+
+            <div>
+                <div class="flex items-center gap-3 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center"
+                    >
+                        <CheckCircle
+                            class="w-6 h-6 text-accent"
+                            stroke-width={2}
+                        />
+                    </div>
+                    <h3 class="serif-title text-2xl font-bold text-foreground">
+                        Recuperación
+                    </h3>
+                </div>
+
+                <div class="space-y-4">
+                    {
+                        recoverySteps.map((item) => (
+                            <div class="p-4 bg-card border border-border rounded-lg shadow-sm">
+                                <div class="flex items-start gap-3">
+                                    <CheckCircle
+                                        class="w-5 h-5 text-accent flex-shrink-0 mt-0.5"
+                                        stroke-width={2}
+                                    />
+                                    <p class="text-muted-foreground">{item}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

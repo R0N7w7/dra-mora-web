@@ -1,0 +1,226 @@
+---
+import { MapPin, Phone, Clock, MapPinIcon, MapPinnedIcon, ImageIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const locations = [
+    {
+        id: 1,
+        name: "Hospital Español",
+        address:
+            "Blvd. Luis Donaldo Colosio 4300, El Palmar, 42088, Hospital Español Pachuca de Soto, Hgo.",
+        phone: "+52 771 291 6045",
+        hours: "lunes a viernes 8:00 am a 1:00 pm",
+        image: "/ubicaciones/espanol.png",
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3746.5666851510464!2d-98.77552352504627!3d20.110392618687193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a12572b3e719%3A0xdda03ccfc6f56290!2sHospital%20Espa%C3%B1ol%20Pachuca!5e0!3m2!1ses-419!2smx!4v1767472740127!5m2!1ses-419!2smx",
+        url: "https://maps.app.goo.gl/QXgswMPn6g1zoYxp6",
+    },
+    {
+        id: 2,
+        name: "Centro médico Bapeva",
+        address: "Av. del Venado 301, Real de Pachuca, Centro médico Bapeva.",
+        phone: "+52 771 291 6045",
+        hours: "lunes a viernes 2:00 pm a 8:00 pm",
+        image: "/ubicaciones/vapeda.png",
+        mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.49989320531!2d-98.77281722504719!3d20.071379719972047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1a0ddfecc1433%3A0x68f438a39b5525bc!2sCentro%20Medico%20Bapeva!5e0!3m2!1ses-419!2smx!4v1767472918138!5m2!1ses-419!2smx",
+        url: "https://maps.app.goo.gl/Fu59cStiYuBpsH8g9",
+    },
+];
+
+interface Props {
+    bgColor?: string;
+}
+
+const { bgColor = "bg-muted/30" } = Astro.props;
+---
+
+<section id="ubicaciones" class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Ubicaciones
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground"
+            >
+                Dos Ubicaciones para tu Conveniencia
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {
+                locations.map((location) => (
+                    <div class="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow flex flex-col h-full">
+                        {/* Image/Map Toggle */}
+                        <div class="relative h-56 flex-shrink-0">
+                            {/* Toggle Switch */}
+                            <div class="absolute top-3 right-3 z-10 flex items-center gap-2 bg-black/50 backdrop-blur-sm rounded-full p-1">
+                                <button
+                                    class="toggle-btn w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                                    data-location-id={location.id}
+                                    data-type="image"
+                                >
+                                    <ImageIcon className="size-5" />
+                                </button>
+                                <button
+                                    class="toggle-btn w-10 h-10 rounded-full flex items-center justify-center transition-all"
+                                    data-location-id={location.id}
+                                    data-type="map"
+                                >
+                                    <MapPinnedIcon className="size-5" />
+                                </button>
+                            </div>
+
+                            {/* Image */}
+                            <img
+                                src={location.image}
+                                alt={location.name}
+                                class="location-image w-full h-full object-cover transition-opacity duration-300"
+                                data-location-id={location.id}
+                            />
+
+                            {/* Map */}
+                            <iframe
+                                src={location.mapUrl}
+                                width="100%"
+                                height="100%"
+                                style="border:0; position: absolute; top: 0; left: 0; opacity: 0;"
+                                class="location-map transition-opacity duration-300 pointer-events-none"
+                                data-location-id={location.id}
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"
+                            />
+                        </div>
+
+                        {/* Location Info */}
+                        <div class="p-8 space-y-6 flex-grow flex flex-col">
+                            <h3 class="serif-title text-3xl font-bold text-foreground">
+                                {location.name}
+                            </h3>
+
+                            <div class="flex gap-4">
+                                <MapPin
+                                    className="w-6 h-6 text-primary shrink-0 mt-1"
+                                    stroke-width={2}
+                                />
+                                <div>
+                                    <p class="font-semibold text-foreground text-xl">
+                                        Dirección
+                                    </p>
+                                    <p class="text-muted-foreground text-lg">
+                                        {location.address}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <Phone
+                                    className="w-6 h-6 text-secondary shrink-0 mt-1"
+                                    stroke-width={2}
+                                />
+                                <div>
+                                    <p class="font-semibold text-foreground text-xl">
+                                        Teléfono
+                                    </p>
+                                    <a
+                                        href={`tel:${location.phone}`}
+                                        class="text-primary hover:text-primary/80 text-lg"
+                                    >
+                                        {location.phone}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex gap-4">
+                                <Clock
+                                    className="w-6 h-6 text-accent shrink-0 mt-1"
+                                    stroke-width={2}
+                                />
+                                <div>
+                                    <p class="font-semibold text-foreground text-xl">
+                                        Horarios
+                                    </p>
+                                    <p class="text-muted-foreground lg:text-lg">
+                                        {location.hours}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <a
+                                href={location.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="mt-auto"
+                            >
+                                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground mt-auto text-md font-semibold py-1">
+                                    Ver en Google Maps
+                                </Button>
+                            </a>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
+
+<style>
+    .toggle-btn {
+        color: white;
+        cursor: pointer;
+    }
+
+    .toggle-btn.active {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .location-map.active {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    .location-image.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+</style>
+
+<script>
+    document.querySelectorAll(".toggle-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const htmlBtn = btn as HTMLElement;
+            const locationId = htmlBtn.dataset.locationId;
+            const type = htmlBtn.dataset.type;
+
+            // Update active button
+            document
+                .querySelectorAll(`[data-location-id="${locationId}"]`)
+                .forEach((b) => {
+                    b.classList.remove("active");
+                });
+            btn.classList.add("active");
+
+            // Toggle image/map visibility
+            const image = document.querySelector(
+                `.location-image[data-location-id="${locationId}"]`,
+            ) as HTMLElement | null;
+            const map = document.querySelector(
+                `.location-map[data-location-id="${locationId}"]`,
+            ) as HTMLElement | null;
+
+            if (type === "image") {
+                image?.classList.remove("hidden");
+                map?.classList.remove("active");
+            } else {
+                image?.classList.add("hidden");
+                map?.classList.add("active");
+            }
+        });
+
+        // Set initial state
+        if ((btn as HTMLElement).dataset.type === "image") {
+            btn.classList.add("active");
+        }
+    });
+</script>

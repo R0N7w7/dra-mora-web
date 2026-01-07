@@ -1,0 +1,135 @@
+---
+import {
+    Mail,
+    Phone,
+    Facebook,
+    Twitter,
+    Linkedin,
+    Instagram,
+} from "lucide-react";
+import { medicalServices } from "@/lib/medical-services";
+
+/**
+ * MIGRACIÓN EXITOSA:
+ * El cálculo del año se realiza en el servidor durante la generación del sitio.
+ * Se eliminó "use client" y todo el JS innecesario en el navegador.
+ */
+
+const currentYear = new Date().getFullYear();
+
+interface Props {
+    // No se requieren props externas según el original
+}
+---
+
+<footer class="bg-foreground text-background pt-20 pb-8 px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+            <div>
+                <h3 class="serif-title text-2xl font-bold mb-4">
+                    Dra. Jessica Itzhel Mora Guzmán
+                </h3>
+                <p class="opacity-80 text-lg leading-relaxed mb-8">
+                    Especialista en cirugía general, gastroenterología y
+                    laparoscopia con compromiso por la excelencia médica.
+                </p>
+
+                <h4 class="font-semibold mb-3 text-xl">Contacto</h4>
+                <ul class="space-y-3 opacity-80 mb-8 text-lg">
+                    <li class="flex items-center gap-2">
+                        <Phone className="size-6 text-accent" />
+                        <a
+                            href="tel:+525551234567"
+                            class="hover:text-accent transition-colors"
+                        >
+                            +52 771 291 6045
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <Mail className="size-6 text-accent" />
+                        <a
+                            href="mailto:info@dramora.mx"
+                            class="hover:text-accent transition-colors"
+                        >
+                            dra.jessicamorag@gmail.com
+                        </a>
+                    </li>
+                </ul>
+
+                <h4 class="font-semibold mb-3 text-xl">Síguenos</h4>
+                <div class="flex gap-4">
+                    <a
+                        href="#"
+                        aria-label="Facebook"
+                        class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    >
+                        <Facebook className="w-5 h-5 text-accent" />
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="Twitter"
+                        class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    >
+                        <Twitter className="w-5 h-5 text-accent" />
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="Linkedin"
+                        class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    >
+                        <Linkedin className="w-5 h-5 text-accent" />
+                    </a>
+                    <a
+                        href="#"
+                        aria-label="Instagram"
+                        class="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center hover:bg-accent/20 transition-colors"
+                    >
+                        <Instagram className="w-5 h-5 text-accent" />
+                    </a>
+                </div>
+            </div>
+
+            <div class="md:col-span-2">
+                <h4 class="font-semibold mb-4 text-xl">Servicios Médicos</h4>
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-xl opacity-80"
+                >
+                    {
+                        medicalServices.map((service) => (
+                            <div>
+                                <span class="font-medium text-accent block mb-1 text-lg">
+                                    {service.categoria}
+                                </span>
+                                {service.procedimientos.length > 0 && (
+                                    <ul class="ml-3 space-y-0.5">
+                                        {service.procedimientos.map((proc) => (
+                                            <li class="text-sm opacity-70">
+                                                <a href={`/servicios/${proc.slug}`} class="hover:text-accent transition-colors">
+                                                    • {proc.titulo}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-background/20 mb-8"></div>
+
+        <div
+            class="flex flex-col md:flex-row justify-between items-center text-sm opacity-70"
+        >
+            <p class="text-lg">
+                &copy; {currentYear} Dra. Jessica Itzhel Mora Guzmán. Todos los derechos
+                reservados.
+            </p>
+            <div class="flex gap-6 mt-4 md:mt-0">
+                <p class="text-lg">COFEPRIS: 2513012002A00157</p>
+            </div>
+        </div>
+    </div>
+</footer>

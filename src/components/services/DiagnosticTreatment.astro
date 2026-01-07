@@ -1,0 +1,79 @@
+---
+/**
+ * Componente: DiagnosticTreatment.astro
+ * Contenido estático directo en HTML y textos de tarjetas vía Props.
+ */
+
+import { Card, CardContent } from "@/components/ui/card";
+import { ClipboardList, Activity } from "@lucide/astro";
+
+interface Props {
+    diagnosticText?: string;
+    treatmentText?: string;
+    bgColor?: string;
+}
+
+const {
+    diagnosticText = "Evaluación médica mediante exploración física y estudios de imagen para confirmar el diagnóstico.",
+    treatmentText = "Plan quirúrgico personalizado centrado en técnicas de mínima invasión y rápida recuperación.",
+    bgColor = "bg-muted/40",
+} = Astro.props;
+---
+
+<section class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Atención Profesional
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground mb-4"
+            >
+                Diagnóstico y Tratamiento
+            </h2>
+            <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Enfoque integral, experiencia clínica y
+                tecnología avanzada para ofrecerte soluciones precisas y
+                resultados duraderos.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <Card className="border-2">
+                <CardContent className="p-8">
+                    <ClipboardList
+                        class="w-12 h-12 text-primary mb-4"
+                        stroke-width={2}
+                    />
+                    <h2
+                        class="serif-title text-2xl font-bold text-foreground mb-4"
+                    >
+                        Diagnóstico
+                    </h2>
+                    <p class="text-muted-foreground leading-relaxed">
+                        {diagnosticText}
+                    </p>
+                </CardContent>
+            </Card>
+
+            <Card className="border-2 border-primary/30 bg-primary/5">
+                <CardContent className="p-8">
+                    <Activity
+                        class="w-12 h-12 text-primary mb-4"
+                        stroke-width={2}
+                    />
+                    <h2
+                        class="serif-title text-2xl font-bold text-foreground mb-4"
+                    >
+                        Tratamiento
+                    </h2>
+                    <p class="text-muted-foreground leading-relaxed">
+                        {treatmentText}
+                    </p>
+                </CardContent>
+            </Card>
+        </div>
+    </div>
+</section>

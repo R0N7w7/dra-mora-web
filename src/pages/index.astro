@@ -1,11 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Hero from "@/components/home/Hero.astro";
+import Layout from "../layouts/Layout.astro";
+import Process from "@/components/home/Process.astro";
+import Services from "@/components/home/Services.astro";
+import Credentials from "@/components/home/Credentials.astro";
+import CalendarWidget from "@/components/widgets/CalendarWidget.astro";
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+	title="Página Principal"
+	description="Esta es la página principal de mi sitio web."
+>
+	<Hero
+		bgColor="bg-gradient-to-br from-primary/5 via-background to-secondary/5"
+	/>
+	<Credentials bgColor="bg-[#f8fafc]" />
+	<Services bgColor="bg-white" />
+	<Process bgColor="bg-[#f1f5f9]" />
 </Layout>

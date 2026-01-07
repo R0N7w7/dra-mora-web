@@ -1,0 +1,111 @@
+---
+/**
+ * SymptomsWithDoctoralia.astro
+ * Estructura fiel a los datos originales (string[]) con diseño de dos columnas.
+ */
+import { AlertCircle } from "lucide-react";
+
+interface Props {
+    sintomas?: string[];
+    alarma?: string;
+    bgColor?: string;
+}
+
+const { sintomas = [], alarma = "", bgColor = "bg-muted/40" } = Astro.props;
+
+const iconStyles = [
+    "bg-primary/10 text-primary",
+    "bg-secondary/10 text-secondary",
+    "bg-accent/10 text-accent",
+];
+---
+
+<section id="sintomas" class={`py-20 px-4 sm:px-6 lg:px-8 ${bgColor}`}>
+    <div class="max-w-7xl mx-auto">
+        {/* Encabezado centrado respetando tu referencia */}
+        <div class="text-center mb-16">
+            <p
+                class="text-accent font-semibold tracking-widest uppercase text-sm mb-4"
+            >
+                Diagnóstico
+            </p>
+            <h2
+                class="serif-title text-4xl md:text-5xl font-bold text-foreground"
+            >
+                Síntomas y Señales de Alerta
+            </h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Columna Izquierda: Lista de Síntomas y Alarma */}
+            <div class="space-y-8">
+                <div class="space-y-6">
+                    {
+                        sintomas.map((sintoma, index) => (
+                            <div class="flex gap-4 items-start group">
+                                <div
+                                    class={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-colors ${iconStyles[index % iconStyles.length]}`}
+                                >
+                                    <AlertCircle
+                                        className="w-6 h-6"
+                                        strokeWidth={2}
+                                    />
+                                </div>
+                                <div class="pt-2">
+                                    <p class="text-foreground text-lg font-medium leading-relaxed group-hover:text-primary transition-colors">
+                                        {sintoma}
+                                    </p>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                {/* Alerta con el estilo original (suave) */}
+                {
+                    alarma && (
+                        <div class="p-5 bg-red-50 dark:bg-red-950/20 border-l-4 border-red-500 rounded-r-lg shadow-sm mt-8">
+                            <p class="font-bold text-red-700 dark:text-red-400 mb-2 text-sm uppercase tracking-wider">
+                                ⚠️ Señal de Emergencia
+                            </p>
+                            <p class="text-red-600 dark:text-red-300 text-sm leading-relaxed">
+                                {alarma}
+                            </p>
+                        </div>
+                    )
+                }
+            </div>
+
+            {/* Columna Derecha: Widget Doctoralia */}
+            <div class="flex items-center justify-center h-full">
+                    <a
+                        id="zl-url"
+                        class="zl-url"
+                        href="https://www.doctoralia.com.mx/jessica-itzhel-mora-guzman/medico-general/pachuca-de-soto"
+                        rel="nofollow"
+                        data-zlw-doctor="jessica-itzhel-mora-guzman"
+                        data-zlw-type="big"
+                        data-zlw-opinion="false"
+                        data-zlw-hide-branding="true"
+                        data-zlw-saas-only="true"
+                        data-zlw-a11y-title="Widget de reserva de citas médicas"
+                    >
+                        Jessica Itzhel Mora Guzman - Doctoralia.com.mx
+                    </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script is:inline>
+    (function ($_x, _s, id) {
+        var js,
+            fjs = $_x.getElementsByTagName(_s)[0];
+        if (!$_x.getElementById(id)) {
+            js = $_x.createElement(_s);
+            js.id = id;
+            js.src = "//platform.docplanner.com/js/widget.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    })(document, "script", "zl-widget-s");
+</script>

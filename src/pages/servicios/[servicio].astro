@@ -1,0 +1,42 @@
+---
+// src/pages/servicios/[servicio].astro
+import Process from "@/components/services/Process.astro";
+import Alerts from "@/components/services/Alerts.astro";
+import DiagnosticTreatment from "@/components/services/DiagnosticTreatment.astro";
+import Hero from "@/components/services/Hero.astro";
+import VideoInfo from "@/components/services/VideoInfo.astro";
+import Layout from "@/layouts/Layout.astro";
+import { services } from "@/lib/services";
+
+export async function getStaticPaths() {
+    return services.map((s) => {
+        return {
+            params: { servicio: s.slug }, // Esto define la URL (ej: /servicios/seo)
+            props: { datos: s }, // Esto pasa los datos a la página
+        };
+    });
+}
+
+const { servicio } = Astro.params;
+const { datos } = Astro.props;
+---
+
+<Layout title={datos.titulo} description={datos.que_es_y_por_que_ocurre}>
+    <Hero title={datos.titulo} description={datos.que_es_y_por_que_ocurre} />
+    <Alerts
+        sintomas={datos.sintomas}
+        alarma={datos.alarma}
+        bgColor="bg-[#f8fafc]"
+    />
+    <DiagnosticTreatment
+        diagnosticText={datos.diagnostico}
+        treatmentText={datos.tratamiento}
+        bgColor="bg-white"
+    />
+    <Process
+        preparationSteps={datos.preparacion}
+        recoverySteps={datos.recuperacion}
+        bgColor="bg-[#f8fafc]"
+    />
+    <VideoInfo  videoUrl={datos.url_video} />
+</Layout>
