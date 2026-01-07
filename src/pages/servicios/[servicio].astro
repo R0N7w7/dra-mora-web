@@ -21,7 +21,11 @@ const { servicio } = Astro.params;
 const { datos } = Astro.props;
 ---
 
-<Layout title={datos.titulo} description={datos.que_es_y_por_que_ocurre}>
+<Layout 
+    title={`${datos.titulo} - ${datos.categoria}`}
+    description={datos.que_es_y_por_que_ocurre}
+    keywords={`${datos.titulo}, ${datos.categoria}, cirugía ${datos.titulo.toLowerCase()}, tratamiento ${datos.titulo.toLowerCase()}, Pachuca, Hidalgo, Dra. Jessica Mora`}
+>
     <Hero title={datos.titulo} description={datos.que_es_y_por_que_ocurre} />
     <Alerts
         sintomas={datos.sintomas}
