@@ -13,11 +13,23 @@ import CalendarWidget from "@/components/widgets/CalendarWidget.astro";
 export interface Props {
 	title: string; // Título específico para la página
 	description?: string; // Descripción meta (opcional)
+	keywords?: string; // Palabras clave para SEO
+	canonicalURL?: string; // URL canónica
+	ogImage?: string; // Imagen para Open Graph
 }
 
 // 2. Desestructura las propiedades
-const { title, description = "Descripción por defecto de mi web" } =
-	Astro.props;
+const { 
+	title, 
+	description = "Dra. Jessica Itzhel Mora Guzmán - Cirujana General especialista en cirugía laparoscópica, hernias, vesícula, apendicitis y padecimientos digestivos en Pachuca, Hidalgo.",
+	keywords = "cirujana general, cirugía laparoscópica, hernias, vesícula, apendicitis, gastroenterología, Pachuca, Hidalgo, cirugía de hernias, colecistitis, vasectomía sin bisturí, pie diabético, hemorroides, cirugía ambulatoria",
+	canonicalURL = Astro.url.pathname,
+	ogImage = "/LogoDraMora.png"
+} = Astro.props;
+
+const siteURL = Astro.site || "https://www.dramora.mx";
+const fullCanonicalURL = new URL(canonicalURL, siteURL).href;
+const fullOgImage = new URL(ogImage, siteURL).href;
 ---
 
 <!doctype html>
@@ -25,8 +37,116 @@ const { title, description = "Descripción por defecto de mi web" } =
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>{title}</title>
+		
+		<!-- Primary Meta Tags -->
+		<title>{title} | Dra. Jessica Itzhel Mora Guzmán</title>
+		<meta name="title" content={`${title} | Dra. Jessica Itzhel Mora Guzmán`} />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="Dra. Jessica Itzhel Mora Guzmán" />
+		<link rel="canonical" href={fullCanonicalURL} />
+		
+		<!-- Favicon -->
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/LogoDraMora.png" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={fullCanonicalURL} />
+		<meta property="og:title" content={`${title} | Dra. Jessica Itzhel Mora Guzmán`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={fullOgImage} />
+		<meta property="og:locale" content="es_MX" />
+		<meta property="og:site_name" content="Dra. Jessica Itzhel Mora Guzmán" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={fullCanonicalURL} />
+		<meta property="twitter:title" content={`${title} | Dra. Jessica Itzhel Mora Guzmán`} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={fullOgImage} />
+		
+		<!-- Robots -->
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
+		
+		<!-- Geo Tags -->
+		<meta name="geo.region" content="MX-HID" />
+		<meta name="geo.placename" content="Pachuca de Soto" />
+		<meta name="geo.position" content="20.119167;-98.735710" />
+		<meta name="ICBM" content="20.119167, -98.735710" />
+		
+		<!-- Medical Professional Schema -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Physician",
+				"name": "Jessica Itzhel Mora Guzmán",
+				"honorificPrefix": "Dra.",
+				"medicalSpecialty": ["Cirugía General", "Cirugía Laparoscópica", "Gastroenterología"],
+				"telephone": "+52-771-291-6045",
+				"email": "dra.jessicamorag@gmail.com",
+				"url": "https://www.dramora.mx",
+				"image": "https://www.dramora.mx/LogoDraMora.png",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Pachuca de Soto",
+					"addressRegion": "Hidalgo",
+					"addressCountry": "MX"
+				},
+				"sameAs": [
+					"https://www.doctoralia.com.mx/jessica-itzhel-mora-guzman/medico-general/pachuca-de-soto"
+				]
+			}
+		</script>
+		
+		<!-- Medical Organization Schema -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "MedicalClinic",
+				"name": "Consultorio Dra. Jessica Itzhel Mora Guzmán",
+				"description": "Cirugía General, Laparoscópica y Gastroenterología",
+				"telephone": "+52-771-291-6045",
+				"email": "dra.jessicamorag@gmail.com",
+				"url": "https://www.dramora.mx",
+				"logo": "https://www.dramora.mx/LogoDraMora.png",
+				"priceRange": "$$",
+				"address": {
+					"@type": "PostalAddress",
+					"addressLocality": "Pachuca de Soto",
+					"addressRegion": "Hidalgo",
+					"addressCountry": "MX"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Pachuca de Soto"
+				},
+				"medicalSpecialty": ["Cirugía General", "Cirugía Laparoscópica", "Gastroenterología"],
+				"availableService": [
+					{
+						"@type": "MedicalProcedure",
+						"name": "Cirugía de Hernias"
+					},
+					{
+						"@type": "MedicalProcedure",
+						"name": "Cirugía Laparoscópica de Vesícula"
+					},
+					{
+						"@type": "MedicalProcedure",
+						"name": "Apendicectomía Laparoscópica"
+					},
+					{
+						"@type": "MedicalProcedure",
+						"name": "Vasectomía sin Bisturí"
+					},
+					{
+						"@type": "MedicalProcedure",
+						"name": "Tratamiento de Hemorroides"
+					}
+				]
+			}
+		</script>
 
 		<slot name="head" />
 	</head>
