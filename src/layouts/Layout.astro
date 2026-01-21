@@ -21,13 +21,13 @@ export interface Props {
 // 2. Desestructura las propiedades
 const { 
 	title, 
-	description = "Dra. Jessica Itzhel Mora Guzmán - Cirujana General especialista en cirugía laparoscópica, hernias, vesícula, apendicitis y padecimientos digestivos en Pachuca, Hidalgo.",
-	keywords = "cirujana general, cirugía laparoscópica, hernias, vesícula, apendicitis, gastroenterología, Pachuca, Hidalgo, cirugía de hernias, colecistitis, vasectomía sin bisturí, pie diabético, hemorroides, cirugía ambulatoria",
+	description = "Dra. Jessica Itzhel Mora Guzmán - Gastrocirugía en Pachuca. Especialista en cirugía general y laparoscópica. Tratamiento de hernias, vesícula, apendicitis y padecimientos digestivos con técnicas mínimamente invasivas.",
+	keywords = "gastrocirugía Pachuca, Dra Jessica Mora, cirujano gastro Pachuca, cirugía laparoscópica, hernias, vesícula, apendicitis, gastroenterología, cirugía general Pachuca Hidalgo, colecistectomía laparoscópica, vasectomía sin bisturí, pie diabético, hemorroides, cirugía ambulatoria Pachuca",
 	canonicalURL = Astro.url.pathname,
 	ogImage = "/LogoDraMora.png"
 } = Astro.props;
 
-const siteURL = Astro.site || "https://www.dramora.mx";
+const siteURL = Astro.site || "https://www.gastrocirugiapachuca.com";
 const fullCanonicalURL = new URL(canonicalURL, siteURL).href;
 const fullOgImage = new URL(ogImage, siteURL).href;
 ---
@@ -57,7 +57,7 @@ const fullOgImage = new URL(ogImage, siteURL).href;
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={fullOgImage} />
 		<meta property="og:locale" content="es_MX" />
-		<meta property="og:site_name" content="Dra. Jessica Itzhel Mora Guzmán" />
+		<meta property="og:site_name" content="Dra. Jessica Itzhel Mora Guzmán - Gastrocirugía Pachuca" />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -86,8 +86,8 @@ const fullOgImage = new URL(ogImage, siteURL).href;
 				"medicalSpecialty": ["Cirugía General", "Cirugía Laparoscópica", "Gastroenterología"],
 				"telephone": "+52-771-291-6045",
 				"email": "dra.jessicamorag@gmail.com",
-				"url": "https://www.dramora.mx",
-				"image": "https://www.dramora.mx/LogoDraMora.png",
+				"url": "https://www.gastrocirugiapachuca.com",
+				"image": "https://www.gastrocirugiapachuca.com/LogoDraMora.png",
 				"address": {
 					"@type": "PostalAddress",
 					"addressLocality": "Pachuca de Soto",
@@ -106,11 +106,11 @@ const fullOgImage = new URL(ogImage, siteURL).href;
 				"@context": "https://schema.org",
 				"@type": "MedicalClinic",
 				"name": "Consultorio Dra. Jessica Itzhel Mora Guzmán",
-				"description": "Cirugía General, Laparoscópica y Gastroenterología",
+				"description": "Gastrocirugía - Cirugía General, Laparoscópica y Gastroenterología en Pachuca",
 				"telephone": "+52-771-291-6045",
 				"email": "dra.jessicamorag@gmail.com",
-				"url": "https://www.dramora.mx",
-				"logo": "https://www.dramora.mx/LogoDraMora.png",
+				"url": "https://www.gastrocirugiapachuca.com",
+				"logo": "https://www.gastrocirugiapachuca.com/LogoDraMora.png",
 				"priceRange": "$$",
 				"address": {
 					"@type": "PostalAddress",

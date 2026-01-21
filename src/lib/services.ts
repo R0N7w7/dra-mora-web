@@ -13,7 +13,7 @@ export const services = [
     ],
     "alarma": "Dolor intenso o un bulto duro que no desaparece puede indicar una hernia estrangulada.",
     "diagnostico": "Evaluación médica mediante exploración física. En algunos casos, se solicita ultrasonido o tomografía para confirmar el tipo de hernia y planificar la cirugía.",
-    "tratamiento": "La reparación quirúrgica es el tratamiento definitivo. La técnica laparoscópica permite menor dolor postoperatorio, cicatrices pequeñas y una recuperación más rápida.",
+    "tratamiento": "La reparación quirúrgica es el tratamiento definitivo. En muchos casos puede realizarse con incisiones mínimas, lo que ayuda a disminuir el dolor postoperatorio, lograr cicatrices pequeñas y favorecer una recuperación más rápida.",
     "preparacion": [
       "Ayuno de 8 horas antes del procedimiento.",
       "Informar medicamentos y alergias.",
@@ -25,9 +25,9 @@ export const services = [
       "El seguimiento médico garantiza una adecuada cicatrización."
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/hernia-inguinal.png"
     ],
-    "url_video": "https://www.youtube.com/embed/p40fLhj0MM8"
+    "url_video": "https://www.youtube.com/embed/pdit8TtCgXE"
   },
   {
     "slug": "hernia-umbilical",
@@ -52,7 +52,7 @@ export const services = [
       "Se recomienda evitar esfuerzos físicos por 3 a 4 semanas"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/hernia-umbilical.png"
     ],
     "url_video": "https://www.youtube.com/embed/DsFmu4xH1ZA"
   },
@@ -67,7 +67,7 @@ export const services = [
     ],
     "alarma": "Dolor intenso o endurecimiento del bulto puede indicar complicación (estrangulación).",
     "diagnostico": "Exploración física y estudios de imagen (ultrasonido o tomografía) para conocer el tamaño y la extensión de la hernia.",
-    "tratamiento": "La reparación quirúrgica es el único tratamiento definitivo. La técnica laparoscópica permite corregir la hernia con menor dolor, rápida recuperación y bajo riesgo de recurrencia.",
+    "tratamiento": "La reparación quirúrgica es el único tratamiento definitivo. Permitiendo corregir la hernia con menor dolor, rápida recuperación y bajo riesgo de recurrencia.",
     "preparacion": [
       "Ayuno antes del procedimiento",
       "Informar medicamentos, alergias y antecedentes quirúrgicos",
@@ -78,9 +78,9 @@ export const services = [
       "Evitar esfuerzos físicos y seguir las indicaciones postoperatorias del control médico"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/hernia-ventral.png"
     ],
-    "url_video": "https://www.youtube.com/embed/5P6IRGXVUhU"
+    "url_video": "https://www.youtube.com/embed/glxWRAwL1Ic"
   },
   {
     "slug": "diastasis-de-rectos",
@@ -94,7 +94,7 @@ export const services = [
     ],
     "alarma": "En casos severos puede coexistir con una hernia umbilical o epigástrica.",
     "diagnostico": "Mediante exploración física y, si se requiere, ultrasonido para valorar la separación muscular.",
-    "tratamiento": "Cuando es leve, puede tratarse con ejercicios dirigidos. Si es severa o asociada a hernias, se recomienda cirugía de corrección (plicatura de rectos) con o sin malla, frecuentemente por vía laparoscópica.",
+    "tratamiento": "Cuando la diástasis de rectos es significativa o se asocia a hernias, el tratamiento indicado es la reparación quirúrgica mediante corrección (plicatura de rectos), con o sin malla, según la valoración médica y las características de cada caso.",
     "preparacion": [
       "Ayuno previo a la cirugía",
       "Evaluación preoperatoria y estudios de laboratorio",
@@ -105,9 +105,9 @@ export const services = [
       "Evitar esfuerzos y ejercicios abdominales intensos hasta completar la recuperación"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/diastasis-de-recto.png"
     ],
-    "url_video": "https://www.youtube.com/embed/l5e4tkSpl20"
+    "url_video": "https://www.youtube.com/embed/laCWF0AW6-k"
   },
   /* Padecimiento de hígado, vesícula y vías biliares */
   {
@@ -134,7 +134,8 @@ export const services = [
       "Seguir dieta ligera durante la primera semana y acudir a control postoperatorio"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/piedras-vesicula.jpg",
+      "/servicios/piedras-vesicula-2.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/3eWKBoMBJ54"
   },
@@ -150,7 +151,7 @@ export const services = [
     ],
     "alarma": "La combinación de fiebre, ictericia y dolor abdominal se conoce como Tríada de Charcot y es una urgencia médica.",
     "diagnostico": "Exploración física y estudios como ultrasonido, colangiorresonancia o CPRE, para identificar la causa de obstrucción. Se complementa con pruebas de función hepática y biometría hemática.",
-    "tratamiento": "Se inicia con antibióticos y manejo hospitalario para controlar la infección. En caso de obstrucción, puede requerirse procedimiento endoscópico o quirúrgico para liberar el conducto biliar.",
+    "tratamiento": "Se inicia con antibióticos y manejo hospitalario para controlar la infección. En caso de obstrucción, puede requerirse procedimiento quirúrgico para liberar el conducto biliar.",
     "preparacion": [
       "Ayuno antes del procedimiento",
       "Estudios de sangre y función hepática",
@@ -162,7 +163,7 @@ export const services = [
       "Se realiza seguimiento médico y control de función hepática"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/piedras-vesicula-2.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/ylRBhZimwNo"
   },
@@ -190,7 +191,7 @@ export const services = [
       "Se recomienda dieta ligera y reposo relativo los primeros días"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/piedras-vesicula.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/bIYxdNspNOk"
   },
@@ -219,7 +220,8 @@ export const services = [
       "El control médico asegura la correcta evolución y cicatrización"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/apendice.jpg",
+      "/servicios/apendice2.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/xvoVfp-XlE4"
   },
@@ -245,7 +247,7 @@ export const services = [
       "El seguimiento permite asegurar la completa recuperación del intestino"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/inflamacion-intestino.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/lb4tRpp9dNc"
   },
@@ -271,7 +273,7 @@ export const services = [
       "El seguimiento postoperatorio asegura la cicatrización y evita complicaciones internas"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/dolor-intestino-grueso.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/mELoCt5E6-0"
   },
@@ -300,7 +302,7 @@ export const services = [
       "Actividad física ligera a los pocos días y control médico para revisar evolución"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/laparoscopia.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/uonaDzyHlKs"
   },
@@ -327,7 +329,7 @@ export const services = [
       "El control postoperatorio asegura buena cicatrización y menor riesgo de recurrencia"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/cirugia-laparoscopica-2.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/0I93nmjWRHc"
   },
@@ -354,7 +356,8 @@ export const services = [
       "Evitar esfuerzos físicos durante una semana y acudir a control médico para seguimiento"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/laparoscopia-3.jpg",
+      "/servicios/cirugia-laparoscopica-3.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/lg6QOQ-d_sE"
   },
@@ -382,7 +385,8 @@ export const services = [
       "Los puntos se retiran en pocos días y se recomienda evitar esfuerzo en la zona intervenida"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/limpoma.jpg",
+      "/servicios/linfoma-3.png"
     ],
     "url_video": "https://www.youtube.com/embed/Oe-2J8WC1hk"
   },
@@ -409,7 +413,7 @@ export const services = [
       "Requiere limpieza diaria y control médico para retiro de puntos si aplica"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/cirugia-laparoscopica-1.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/jqdi32JIdz8"
   },
@@ -436,7 +440,7 @@ export const services = [
       "Seguir las indicaciones médicas y acudir a control para asegurar una correcta cicatrización"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/inflamacion-intestino.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/kpp85bxSQo4"
   },
@@ -467,7 +471,7 @@ export const services = [
       "La vasectomía no afecta la función sexual, el deseo ni la erección"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/vasectomia.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/bmox_YIBUHg"
   },
@@ -501,7 +505,9 @@ export const services = [
       "Acudir a consulta ante cualquier cambio o lesión"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/pie-diabetico.jpg",
+      "/servicios/pie-diabetico-2.jpg",
+      "/servicios/pie-diabetico-3.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/_eFiGme0xfQ"
   },
@@ -529,7 +535,7 @@ export const services = [
       "Se recomienda dieta rica en fibra y mantener buena higiene para facilitar la cicatrización"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/fistula-anal.png"
     ],
     "url_video": "https://www.youtube.com/embed/SK19riIlYBA"
   },
@@ -556,7 +562,7 @@ export const services = [
       "Evitar estreñimiento y mantener dieta saludable para prevenir recurrencias"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/fisura-anal.jpg"
     ],
     "url_video": "https://www.youtube.com/embed/ABx1B9r72y8"
   },
@@ -584,7 +590,7 @@ export const services = [
       "Se recomienda evitar permanecer mucho tiempo sentado y mantener una higiene adecuada"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/hemorroides.png"
     ],
     "url_video": "https://www.youtube.com/embed/Jk0PmsNL_fg"
   },
@@ -612,7 +618,7 @@ export const services = [
       "En caso de cirugía, puede requerirse control hormonal posterior y seguimiento con endocrinología o cirugía general"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/nodulos-tiroideos.png"
     ],
     "url_video": "https://www.youtube.com/embed/Yuah1w631Yc"
   },
@@ -640,7 +646,7 @@ export const services = [
       "El seguimiento médico incluye vigilancia hormonal y ultrasonidos periódicos"
     ],
     "urls_imagen": [
-      "/img/placeholder.jpg"
+      "/servicios/bocio-tiroideo.png"
     ],
     "url_video": "https://www.youtube.com/embed/zomlN2ey7II"
   }
